@@ -2,9 +2,11 @@ from rest_framework import serializers
 from .models import Person, Address, PersonAddress, Assoc, Student, Vaguppu, VaguppuStud
 
 class PersonSerializer(serializers.ModelSerializer):
+    age = serializers.ReadOnlyField()
+    fullname = serializers.ReadOnlyField()
     class Meta: 
         model = Person
-        fields = ['id', 'lastname', 'firstname', 'email', 'age'] 
+        fields = '__all__'
 
 
 class AddressSerializer(serializers.ModelSerializer):

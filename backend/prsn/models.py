@@ -31,6 +31,10 @@ class Person(models.Model):
                 age -= 1
         return age
 
+    @property
+    def fullname(self):
+        return self.firstname + ' ' + self.lastname
+
 class Address(models.Model):
     street=models.CharField(max_length=255)
     city=models.CharField(max_length=100)

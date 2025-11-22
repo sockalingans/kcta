@@ -12,7 +12,7 @@ const SchoolList = () => {
     
     const fetchSchools = async () => {
         try {
-                const res = await axios.get('http://localhost:8000/api/schools/');
+                const res = await axios.get('http://localhost:8000/lkup/schools/');
                 setSchools(res.data);
         }
         catch (err) {
@@ -24,7 +24,7 @@ const SchoolList = () => {
     const addSchool = async () => {
         if (!newSchool) return;
         try { 
-            const res = await axios.post('http://localhost:8000/api/schools/', {
+            const res = await axios.post('http://localhost:8000/lkup/schools/', {
                 name: newSchool
             });
             

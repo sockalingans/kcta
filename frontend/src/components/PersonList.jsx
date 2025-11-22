@@ -11,7 +11,7 @@ const PersonList = () => {
 
     const fetchPersons = async () => {
         try {
-                const res = await axios.get('http://localhost:8000/stud/persons/');
+                const res = await axios.get('http://localhost:8000/prsn/persons/');
                 setPersons(res.data);
         }
         catch (err) {
@@ -27,8 +27,7 @@ const PersonList = () => {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Last</th>
-                        <th>First</th>
+                        <th>Full Name</th>
                         <th>Email</th>
                         <th>Age</th>
                     </tr>
@@ -37,8 +36,7 @@ const PersonList = () => {
                     {persons.map((person) => (
                         <tr key={person.id}>
                             <td>{person.id}</td>
-                            <td>{person.lastname}</td>
-                            <td>{person.firstname}</td>
+                            <td>{person.fullname}</td>
                             <td>{person.email}</td>
                             <td>{person.age}</td>
                         </tr> 
