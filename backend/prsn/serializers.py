@@ -4,7 +4,7 @@ from .models import Person, Address, PersonAddress, Assoc, Student, Vaguppu, Vag
 class PersonSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Person
-        fields = '__all__' 
+        fields = ['id', 'lastname', 'firstname', 'email', 'age'] 
 
 
 class AddressSerializer(serializers.ModelSerializer):

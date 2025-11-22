@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.core.validators import RegexValidator
 from phonenumber_field.modelfields import PhoneNumberField
 from lkup.models import School, AssocType, AcademyLvl, AcademyYr
@@ -22,6 +23,13 @@ class Person(models.Model):
     def __str__(self):
         return "%s, %s" % (self.lastname, self.firstname)
 
+    @property
+    def age(self):
+        today = timezone.now().date()
+        age = today.year - self.dob.year
+        if (today.month, today.day) < (self.dob.month, self.dob.day):
+                age -= 1
+        return age
 
 class Address(models.Model):
     street=models.CharField(max_length=255)
